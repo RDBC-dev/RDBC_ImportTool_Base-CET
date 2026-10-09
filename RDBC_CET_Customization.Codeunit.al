@@ -16,13 +16,6 @@ codeunit 85202 "RDBC_CET_Customization"
         Allow := true;
     end;
 
-    // Name shown in front of the page captions, e.g. "CET Document Upload".
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnGetProductName', '', false, false)]
-    local procedure GetProductName(var ProductName: Text)
-    begin
-        ProductName := 'CET';
-    end;
-
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnGetDocumentProgressMessages', '', false, false)]
     local procedure GetDocumentProgressMessages(var Messages: List of [Text]; var IsHandled: Boolean)
     begin
