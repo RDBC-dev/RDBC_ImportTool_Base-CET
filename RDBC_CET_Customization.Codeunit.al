@@ -1,17 +1,15 @@
-// CET-specific user interface settings: processing messages.
-// Document and Journal Upload are both allowed for CET (base default). To switch one off,
-// subscribe to RDBC_Base_Events.OnAllowDocumentUpload / OnAllowJournalUpload and set Allow := false.
+// CET-specific settings: CET uses Document Import only, with its own processing messages.
 codeunit 85202 "RDBC_CET_Customization"
 {
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnGetDocumentProgressMessages', '', false, false)]
-    local procedure GetDocumentProgressMessages(var Messages: List of [Text]; var IsHandled: Boolean)
+    // CET does not use Journal Import: no journal tiles, upload page, staging page or processing.
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnAllowJournalUpload', '', false, false)]
+    local procedure DisallowJournalUpload(var Allow: Boolean)
     begin
-        AddCETMessages(Messages);
-        IsHandled := true;
+        Allow := false;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnGetJournalProgressMessages', '', false, false)]
-    local procedure GetJournalProgressMessages(var Messages: List of [Text]; var IsHandled: Boolean)
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnGetDocumentProgressMessages', '', false, false)]
+    local procedure GetDocumentProgressMessages(var Messages: List of [Text]; var IsHandled: Boolean)
     begin
         AddCETMessages(Messages);
         IsHandled := true;

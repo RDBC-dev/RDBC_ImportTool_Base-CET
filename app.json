@@ -4,7 +4,7 @@
   "publisher": "RD Business Consulting",
   "version": "1.0.0.0",
   "brief": "",
-  "description": "CET-specific extension of the RDBC Import Tool: Float document type, Additional Dimensions on journal import and CET processing messages.",
+  "description": "CET-specific extension of the RDBC Import Tool: Float document type and CET processing messages. Journal Import is switched off for CET.",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
