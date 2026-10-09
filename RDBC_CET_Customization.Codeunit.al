@@ -1,11 +1,12 @@
 // CET-specific settings: CET uses Document Import only, with its own processing messages.
 codeunit 85202 "RDBC_CET_Customization"
 {
-    // CET does not use Journal Import: no journal tiles, upload page, staging page or processing.
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnAllowJournalUpload', '', false, false)]
-    local procedure DisallowJournalUpload(var Allow: Boolean)
+    // What CET may use. The base allows nothing by default.
+    // Document Import: allowed. Journal Import: not allowed (no subscriber for OnAllowJournalUpload).
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnAllowDocumentUpload', '', false, false)]
+    local procedure AllowDocumentUpload(var Allow: Boolean)
     begin
-        Allow := false;
+        Allow := true;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnGetDocumentProgressMessages', '', false, false)]
