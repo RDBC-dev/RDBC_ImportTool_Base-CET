@@ -9,6 +9,6 @@ Object ID range: 85200–85299.
 |---|---|
 | Document Import Type **Float** (Purchase Invoice with vendor tax defaults; `NO TAX` → Tax Group `NONTAXABLE`) | `DocumentImport/` |
 | **Additional Dimensions** CUSTOMERGROUP, VENDORGROUP, PARENTCOMPANY on journal import (Excel/CSV columns 21–23) | `JournalImport/` |
-| Journal Import tiles hidden on the role center, CET processing messages | `RDBC_CET_Customization.Codeunit.al` |
+| CET processing messages (Document and Journal Upload both allowed) | `RDBC_CET_Customization.Codeunit.al` |
 
 All CET logic plugs into the base through the events in `RDBC_Base_Events`; no base code is copied.

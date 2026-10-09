@@ -1,14 +1,8 @@
-// CET-specific user interface settings: role center tiles and processing messages.
+// CET-specific user interface settings: processing messages.
+// Document and Journal Upload are both allowed for CET (base default). To switch one off,
+// subscribe to RDBC_Base_Events.OnAllowDocumentUpload / OnAllowJournalUpload and set Allow := false.
 codeunit 85202 "RDBC_CET_Customization"
 {
-    // CET does not use the Journal Import tiles on the role center.
-    // Change to Show := true (or remove this subscriber) to show them.
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnShowJournalImportTiles', '', false, false)]
-    local procedure HideJournalImportTiles(var Show: Boolean)
-    begin
-        Show := false;
-    end;
-
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"RDBC_Base_Events", 'OnGetDocumentProgressMessages', '', false, false)]
     local procedure GetDocumentProgressMessages(var Messages: List of [Text]; var IsHandled: Boolean)
     begin
