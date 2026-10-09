@@ -2,7 +2,7 @@
   "id": "b718eb50-251a-4fda-93c3-cf715bb20f19",
   "name": "RDBC - ImportTool - CET",
   "publisher": "RD Business Consulting",
-  "version": "1.0.0.1",
+  "version": "1.0.0.2",
   "brief": "",
   "description": "CET-specific extension of the RDBC Import Tool: Float document type and CET processing messages. Journal Import is switched off for CET.",
   "privacyStatement": "",
@@ -15,7 +15,7 @@
       "id": "fb89561f-4965-437c-abfd-14f49a9fdb29",
       "name": "RDBC - ImportTool - Base",
       "publisher": "RD Business Consulting",
-      "version": "1.0.0.0"
+      "version": "1.0.0.2"
     }
   ],
   "screenshots": [],
